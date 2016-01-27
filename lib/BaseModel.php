@@ -1,7 +1,7 @@
 <?php
 namespace Lib;
 
-class Model
+class BaseModel
 {
 
 }

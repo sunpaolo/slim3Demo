@@ -1,2 +1,1 @@
-{{st}}
-hehe
+hello {{name}}

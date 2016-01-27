@@ -1,15 +1,17 @@
 <?php
 namespace App\Controllers;
 
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\ResponseInterface;
 use Lib\BaseController;
 
 class IndexController extends BaseController
 {
-    public function index(ServerRequestInterface $request, ResponseInterface $response, $args)
+    public function index($params)
     {
-        //$this->json(['test' => 1]);
-        $this->render('abc/index.php', ['st' => 1]);
+        $this->render('index.php', ['name' => $params['name']]);
+    }
+
+    public function add($params)
+    {
+        return $this->json(['msms','emem']);
     }
 }

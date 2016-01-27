@@ -4,7 +4,7 @@ ini_set('display_startup_errors', true);
 ini_set('log_errors', true);
 ini_set('html_errors', false);
 //error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
-error_reporting(E_ALL);
+error_reporting(E_ALL ^ E_NOTICE);
 return [
     'settings' => [
         // Slim Settings

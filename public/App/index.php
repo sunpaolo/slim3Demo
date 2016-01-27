@@ -1,9 +1,6 @@
 <?php
 include __DIR__ . '/../common.php';
 
-//定义应用程序根目录
-define('APP_DIR', BASE_DIR . '/src/App');
-
 $config = include BASE_DIR . '/config/setting.php';
 $app = new Slim\App($config);
 

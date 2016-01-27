@@ -1,11 +1,6 @@
 <?php
 namespace Lib;
 
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
-use Monolog\Logger;
-use Slim\Views\Twig;
-
 abstract class BaseController
 {
     protected $view;
@@ -21,9 +16,12 @@ abstract class BaseController
         $this->response = $container->response;
     }
 
-    public function json($data)
+    public function json($data, $wrap = true)
     {
-        $this->response
+        if ($wrap) {
+            $data = ['data' => $data];
+        }
+        return $this->response
             ->withStatus(200)
             ->withHeader('Content-type', 'application/json; charset=utf-8')
             ->write(json_encode($data));
