@@ -12,12 +12,7 @@ return [
         'displayErrorDetails' => true,
         // View settings
         'view' => [
-            'template_path' => APP_DIR . '/views',
-            'twig' => [
-                'cache' => BASE_DIR . '/storage/cache',
-                'debug' => true,
-                'auto_reload' => true,
-            ],
+            'template_path' => APP_DIR . '/views/'
         ],
         // Monolog settings
         'logger' => [

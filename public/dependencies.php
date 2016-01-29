@@ -7,18 +7,9 @@ $container = $app->getContainer();
 // Service providers
 // -----------------------------------------------------------------------------
 
-// Twig
+// php-view
 $container['view'] = function ($c) {
-    $view = new \Slim\Views\Twig(
-        $c['settings']['view']['template_path'],
-        $c['settings']['view']['twig']
-    );
-    $view->addExtension(new Twig_Extension_Debug());
-    $view->addExtension(new \Slim\Views\TwigExtension(
-        $c['router'],
-        $c['request']->getUri()
-    ));
-    return $view;
+    return new \Slim\Views\PhpRenderer($c['settings']['view']['template_path']);
 };
 
 // monolog
