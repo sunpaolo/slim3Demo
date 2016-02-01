@@ -1,0 +1,6 @@
+vendor/.git
+vendor/**/.git
+config
+storage/log/*
+storage/cache/*
+.idea/
