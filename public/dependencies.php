@@ -16,7 +16,9 @@ $container['view'] = function ($c) {
 $container['logger'] = function ($c) {
     $logger = new \Monolog\Logger($c['settings']['logger']['name']);
     $logger->pushProcessor(new \Monolog\Processor\WebProcessor());
-    $logger->pushHandler(new \Monolog\Handler\StreamHandler($c['settings']['logger']['path'], \Monolog\Logger::DEBUG));
+    $handler = new \Monolog\Handler\StreamHandler($c['settings']['logger']['path'], \Monolog\Logger::DEBUG);
+    $handler->setFormatter(new Monolog\Formatter\JsonFormatter());
+    $logger->pushHandler($handler);
     return $logger;
 };
 

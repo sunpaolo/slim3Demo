@@ -31,7 +31,7 @@ class ApiNotAllowed extends NotAllowed
 
         return $response
             ->withStatus(405)
-            ->withHeader('Content-type', 'application/json')
+            ->withHeader('Content-type', 'application/json;charset=utf-8')
             ->withBody($body);
     }
 }

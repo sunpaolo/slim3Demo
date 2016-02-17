@@ -31,7 +31,7 @@ class ApiNotFound extends NotFound
 
         return $response
             ->withStatus(404)
-            ->withHeader('Content-type', 'application/json')
+            ->withHeader('Content-type', 'application/json;charset=utf-8')
             ->withBody($body);
     }
 }

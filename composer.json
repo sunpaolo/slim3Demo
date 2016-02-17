@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": ">=5.5.0",
-    "ext-mongodb": "1.1.2",
+    "ext-mongodb": "^1.1.0",
     "slim/slim": "3.1.0",
     "monolog/monolog": "1.17.2",
     "slim/php-view": "2.0.6"
