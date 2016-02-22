@@ -14,6 +14,9 @@ class IndexController extends BaseController
 
     public function add($params)
     {
-        return $this->json(['msms','emem']);
+        $db = new \Lib\BaseModel('default', 'test');
+        //$db->insertOne(['_id' => 2, 'name' => 'paolo2']);
+        $data = $db->find();
+        return $this->json($data);
     }
 }

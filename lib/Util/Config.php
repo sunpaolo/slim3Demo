@@ -24,9 +24,9 @@ class Config
         $defaultPath = BASE_DIR . "/data/default/{$fileName}.php";
         $path = BASE_DIR . "/data/{$fileName}.php";
         if (!isset(self::$dataList[$path])) {
-            //if (file_exists($defaultPath)) {
-            //    self::$dataList[$path] = array_replace_recursive(self::load($defaultPath), self::load($path));
-            //}
+            if (file_exists($defaultPath)) {
+                self::$dataList[$path] = array_replace_recursive(self::load($defaultPath), self::load($path));
+            }
             self::$dataList[$path] = self::load($path);
         }
         return self::$dataList[$path];
