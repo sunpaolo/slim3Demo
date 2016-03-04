@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "45c8a51d2f9b38638aab5ef6ddff8893",
-    "content-hash": "f84d0312361f15e38f2114fba939be0d",
+    "hash": "32a68465cd12edc62987af0d9e488d67",
+    "content-hash": "cd9472776c5005eef1db9b3b1944f599",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -462,16 +462,16 @@
         },
         {
             "name": "slim/slim",
-            "version": "3.1.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim.git",
-                "reference": "03b44a4b41896ba42c78bbd5fa172cd79e650496"
+                "reference": "835425f5945a25509eeab885e80617948e68371d"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/slimphp/Slim/03b44a4b41896ba42c78bbd5fa172cd79e650496.zip",
-                "reference": "03b44a4b41896ba42c78bbd5fa172cd79e650496",
+                "url": "http://packagist.phpcomposer.com/files/slimphp/Slim/835425f5945a25509eeab885e80617948e68371d.zip",
+                "reference": "835425f5945a25509eeab885e80617948e68371d",
                 "shasum": ""
             },
             "require": {
@@ -491,7 +491,7 @@
                     "Slim\\": "Slim"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.orghttps://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -525,7 +525,7 @@
                 "micro",
                 "router"
             ],
-            "time": "2016-01-08 15:37:50"
+            "time": "2016-02-25 08:15:17"
         }
     ],
     "packages-dev": [
