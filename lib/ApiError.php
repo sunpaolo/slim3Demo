@@ -19,14 +19,12 @@ final class ApiError extends \Slim\Handlers\Error
 
     public function __invoke(Request $request, Response $response, \Exception $exception)
     {
-        $message = json_encode([
-            'message' => $exception->getMessage(),
+        $context = [
             'file' => $exception->getFile(),
             'line' => $exception->getLine(),
             'code' => $exception->getCode()
-        ]);
-        //$message = $exception->getTraceAsString();
-        $this->logger->critical($message);
+        ];
+        $this->logger->critical($exception->getMessage(), $context);
         //return parent::__invoke($request, $response, $exception);
         $output = json_encode([
             'error' => $exception->getMessage(),

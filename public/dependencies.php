@@ -9,14 +9,15 @@ $container = $app->getContainer();
 
 // php-view
 $container['view'] = function ($c) {
-    return new \Slim\Views\PhpRenderer($c['settings']['view']['template_path']);
+    return new Slim\Views\PhpRenderer($c['settings']['view']['template_path']);
 };
 
 // monolog
 $container['logger'] = function ($c) {
-    $logger = new \Monolog\Logger($c['settings']['logger']['name']);
-    $logger->pushProcessor(new \Monolog\Processor\WebProcessor());
-    $handler = new \Monolog\Handler\StreamHandler($c['settings']['logger']['path'], \Monolog\Logger::DEBUG);
+    $logger = new Monolog\Logger($c['settings']['logger']['name']);
+    $logger->pushProcessor(new Monolog\Processor\MemoryPeakUsageProcessor());
+    $logger->pushProcessor(new Monolog\Processor\WebProcessor());
+    $handler = new Monolog\Handler\StreamHandler($c['settings']['logger']['path'], \Monolog\Logger::DEBUG);
     $handler->setFormatter(new Monolog\Formatter\JsonFormatter());
     $logger->pushHandler($handler);
     return $logger;
