@@ -9,7 +9,7 @@ class IndexController extends BaseController
 {
     public function index($params)
     {
-
+        $this->render('index.php', []);
     }
 
 }

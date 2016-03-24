@@ -24,16 +24,15 @@ final class ApiError extends \Slim\Handlers\Error
             'line' => $exception->getLine(),
             'code' => $exception->getCode()
         ];
-        $this->logger->critical($exception->getMessage(), $context);
+        $msg = $exception->getMessage();
+        $this->logger->critical($msg, $context);
         //return parent::__invoke($request, $response, $exception);
         $output = json_encode([
-            'error' => $exception->getMessage(),
-            'code' => $exception->getCode()
+            'error' => $msg,
+            'code' => 500
         ]);
-
         $body = new \Slim\Http\Body(fopen('php://temp', 'r+'));
         $body->write($output);
-
         return $response
             ->withStatus(500)
             ->withHeader('Content-type', 'application/json;charset=utf-8')

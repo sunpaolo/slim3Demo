@@ -26,9 +26,11 @@ class UploadedFile implements UploadedFileInterface
     /**
      * The client-provided full path to the file
      *
+     * @note this is public to maintain BC with 3.1.0 and earlier.
+     *
      * @var string
      */
-    protected $file;
+    public $file;
     /**
      * The client-provided file name.
      *
@@ -107,6 +109,7 @@ class UploadedFile implements UploadedFileInterface
                 }
                 continue;
             }
+
             $parsed[$field] = [];
             if (!is_array($uploadedFile['error'])) {
                 $parsed[$field] = new static(
@@ -118,15 +121,16 @@ class UploadedFile implements UploadedFileInterface
                     true
                 );
             } else {
+                $subArray = [];
                 foreach ($uploadedFile['error'] as $fileIdx => $error) {
-                    $parsed[$field][] = new static(
-                        $uploadedFile['tmp_name'][$fileIdx],
-                        isset($uploadedFile['name']) ? $uploadedFile['name'][$fileIdx] : null,
-                        isset($uploadedFile['type']) ? $uploadedFile['type'][$fileIdx] : null,
-                        isset($uploadedFile['size']) ? $uploadedFile['size'][$fileIdx] : null,
-                        $uploadedFile['error'][$fileIdx],
-                        true
-                    );
+                    // normalise subarray and re-parse to move the input's keyname up a level
+                    $subArray[$fileIdx]['name'] = $uploadedFile['name'][$fileIdx];
+                    $subArray[$fileIdx]['type'] = $uploadedFile['type'][$fileIdx];
+                    $subArray[$fileIdx]['tmp_name'] = $uploadedFile['tmp_name'][$fileIdx];
+                    $subArray[$fileIdx]['error'] = $uploadedFile['error'][$fileIdx];
+                    $subArray[$fileIdx]['size'] = $uploadedFile['size'][$fileIdx];
+
+                    $parsed[$field] = static::parseUploadedFiles($subArray);
                 }
             }
         }

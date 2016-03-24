@@ -14,7 +14,7 @@
     "ext-mongodb": "^1.1.0",
     "slim/slim": "^3.0",
     "monolog/monolog": "1.17.2",
-    "slim/php-view": "2.0.6",
+    "slim/php-view": "^2.0",
     "mongodb/mongodb": "1.0.0",
     "respect/validation": "^1.0"
   },

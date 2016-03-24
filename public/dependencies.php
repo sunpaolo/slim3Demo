@@ -20,6 +20,7 @@ $container['logger'] = function ($c) {
     $handler = new Monolog\Handler\StreamHandler($c['settings']['logger']['path'], \Monolog\Logger::DEBUG);
     $handler->setFormatter(new Monolog\Formatter\JsonFormatter());
     $logger->pushHandler($handler);
+    $logger->pushHandler(new Monolog\Handler\ErrorLogHandler());
     return $logger;
 };
 
