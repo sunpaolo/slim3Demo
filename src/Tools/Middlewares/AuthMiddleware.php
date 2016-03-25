@@ -1,5 +1,5 @@
 <?php
-namespace App\Middlewares;
+namespace Tools\Middlewares;
 
 use \Psr\Http\Message\ServerRequestInterface;
 use \Psr\Http\Message\ResponseInterface;
@@ -11,7 +11,6 @@ class AuthMiddleware
 {
     //不验证token的route
     private $excludedRoute = [
-        'index/index',
         'index/login'
     ];
 
@@ -39,7 +38,7 @@ class AuthMiddleware
                 ]);
                 return $response
                     ->withStatus(405)
-                    ->withHeader('Content-type', 'application/json')
+                    ->withHeader('Content-type', 'application/json;charset=utf-8')
                     ->write($output);
             }
         }

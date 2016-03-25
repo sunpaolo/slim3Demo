@@ -18,4 +18,8 @@ public里作为入口程序，也通过目录区分应用
 
 storage里存放日志 chmod 777 -R storage/
 
+测试：
+php -S localhost:8000 -t public\App
+php -S localhost:8000 -t public\Tools
+
 ##composer dump-autoload --optimize

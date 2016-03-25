@@ -31,4 +31,13 @@ abstract class BaseController
     {
         $this->view->render($this->response, $template, $data);
     }
+
+    public function renderTemplate($template, array $data)
+    {
+        $tplData = [
+            'menu' => $this->view->fetch('layout/menu.php', []),
+            'content' => $this->view->fetch($template, $data),
+        ];
+        $this->view->render($this->response, 'layout/default.php', $tplData);
+    }
 }

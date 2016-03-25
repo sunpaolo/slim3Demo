@@ -1,1 +1,3 @@
-hello <?php echo $name;?>
+<div>
+    hello <?php echo $name;?>
+</div>
