@@ -2,11 +2,7 @@
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-$app->get('/', function (Request $request, Response $response, $args) {
-    return $response->write('welcome');
-});
-
-$app->any('/{controller}/{action}', function ($request, $response, $args) {
+$app->any('/[{controller}/{action}]', function (Request $request, Response $response, $args) {
     $controller = $args['controller'] ?: 'index';
     $action = $args['action'] ?: 'index';
     $className = 'Tools\\Controllers\\' . ucfirst($controller) . 'Controller';

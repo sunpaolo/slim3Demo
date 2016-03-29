@@ -34,10 +34,17 @@ abstract class BaseController
 
     public function renderTemplate($template, array $data)
     {
+        $menuModel = new \Tools\Models\Menu();
+        $menus = $menuModel->getMenus('admin');
         $tplData = [
-            'menu' => $this->view->fetch('layout/menu.php', []),
+            'menu' => $this->view->fetch('layout/menu.php', ['menus' => $menus]),
             'content' => $this->view->fetch($template, $data),
         ];
         $this->view->render($this->response, 'layout/default.php', $tplData);
+    }
+
+    public function getUser()
+    {
+
     }
 }
