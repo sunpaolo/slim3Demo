@@ -22,4 +22,5 @@ storage里存放日志 chmod 777 -R storage/
 php -S localhost:8000 -t public\App
 php -S localhost:8000 -t public\Tools
 
+##composer update --no-dev
 ##composer dump-autoload --optimize

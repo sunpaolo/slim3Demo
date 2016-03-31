@@ -2,6 +2,8 @@
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
+$app->add(new \Tools\Middlewares\SessionMiddleware());
+
 $app->any('/[{controller}/{action}]', function (Request $request, Response $response, $args) {
     $controller = $args['controller'] ?: 'index';
     $action = $args['action'] ?: 'index';
@@ -16,4 +18,4 @@ $app->any('/[{controller}/{action}]', function (Request $request, Response $resp
     } else {
         throw new Exception('Error Path');
     }
-})->add(new \App\Middlewares\AuthMiddleware());
+})->add(new \Tools\Middlewares\AuthMiddleware());
