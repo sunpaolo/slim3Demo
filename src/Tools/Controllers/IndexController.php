@@ -41,8 +41,9 @@ class IndexController extends BaseController
             //TODO 存入cookie
             if ($remember) {
             }
-            $this->renderTemplate('index.php', $params);
-            return;
+            //$this->renderTemplate('index.php', $params);
+            //return;
+            return $this->response->withRedirect('/');
         }
         $this->render('login.php', $params);
     }
