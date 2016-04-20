@@ -4,7 +4,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 $app->add(new \Tools\Middlewares\SessionMiddleware());
 
-$app->any('/[{controller}/{action}]', function (Request $request, Response $response, $args) {
+$app->any('/[{controller}[/{action}]]', function (Request $request, Response $response, $args) {
     $controller = $args['controller'] ?: 'index';
     $action = $args['action'] ?: 'index';
     $className = 'Tools\\Controllers\\' . ucfirst($controller) . 'Controller';
