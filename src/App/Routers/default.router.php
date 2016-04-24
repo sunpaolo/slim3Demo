@@ -10,7 +10,7 @@ $app->get('/', function (Request $request, Response $response, $args) {
 //    $app->map(['GET', 'POST'], '', 'App\Controllers\IndexController:index');
 //});
 
-$app->any('/v1/{controller}/{action}', function ($request, $response, $args) {
+$app->any('/v1/[{controller}[/{action}]]', function ($request, $response, $args) {
     $controller = $args['controller'] ?: 'index';
     $action = $args['action'] ?: 'index';
     $className = 'App\\Controllers\\' . ucfirst($controller) . 'Controller';
