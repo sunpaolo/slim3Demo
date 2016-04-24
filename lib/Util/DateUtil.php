@@ -3,6 +3,14 @@ namespace Lib\Util;
 
 class DateUtil
 {
+    // Second amounts for various time increments
+    const YEAR   = 31556926;
+    const MONTH  = 2629744;
+    const WEEK   = 604800;
+    const DAY    = 86400;
+    const HOUR   = 3600;
+    const MINUTE = 60;
+
     /*
      * 检测是不是当天的时间戳
      */

@@ -2,7 +2,13 @@
 namespace Lib;
 
 use Lib\Util\Config;
+use Lib\Util\DBUtil;
 
+/*
+ * 可参考：
+ * http://mongodb.github.io/mongo-php-library/classes/collection/
+ * http://php.net/manual/zh/mongodb-driver-query.construct.php
+ */
 class BaseModel
 {
     protected $db;
@@ -15,6 +21,14 @@ class BaseModel
 
     public function __construct($db, $table)
     {
+        if (is_numeric($db)) {
+            $uid = intval($db);
+            if (empty($uid)) {
+                throw new \Exception('Error User');
+            }
+            $this->uid = $uid;
+            $db = DBUtil::getDbName($uid);
+        }
         $this->dbName = $db;
         $this->tableName = $table;
         $this->db = self::getConnection($db);
